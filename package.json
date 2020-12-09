@@ -1,0 +1,8 @@
+{
+  "name": "notes-api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/weslley19/notes-api.git",
+  "author": "weslley19 <weslleyoliveira258@gmail.com>",
+  "license": "MIT"
+}
