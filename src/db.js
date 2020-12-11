@@ -9,20 +9,13 @@ const pool = mariadb.createPool({
     connectionLimit: 5,
 });
 
-async function connectionDataBase() {
-    let connection;
-    try {
-        connection = await pool.getConnection();
-        // Testando conexão
-        const rows = await connection.query('select * from notes');
-        console.log(rows);
-
-        if (connection) {
-            console.log(`Connection successfull on database ${process.env.DB_NAME}`);
-        }
-    } catch (error) {
+pool.cone((error) => {
+    if (error) {
         throw error;
     }
-}
 
-connectionDataBase(); 
+    const res = pool.query('select * from notes');
+    console.log(res);
+});
+
+module.exports = pool;
